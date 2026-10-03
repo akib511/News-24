@@ -1,4 +1,5 @@
 import MainNews from "@/componenets/mainNews";
+import MostRead from "@/componenets/MostRead";
 import NewsCard from "@/componenets/NewsCard";
 
 // Single news article type
@@ -34,7 +35,7 @@ export default async function Home() {
  
 
   return (
-    <div className="grid grid-cols-3 px-6">
+    <div className="grid grid-cols-3 px-6 gap-6">
       {/* News section */}
       <div className="col-span-2">
         {/* Main News */}
@@ -66,7 +67,13 @@ export default async function Home() {
       </div>
 
       {/* Most Read Section */}
-      <div className="col-span-1 bg-green-600"></div>
+      <div className="col-span-1">
+      <MostRead />
+</div>
+
+     
+     
+
     </div>
   );
 }
