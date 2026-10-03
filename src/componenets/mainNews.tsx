@@ -6,7 +6,8 @@ interface News {
   title : string;
   description : string;
   imageUrl : string;
-  imageAlt : string
+  imageAlt : string;
+  category : string
 }
 
 const MainNews = ({ news }: { news: News[] }) => {
@@ -14,7 +15,8 @@ const MainNews = ({ news }: { news: News[] }) => {
   const firstNews = news[0];
   // other news
   const otherNews = news.slice(1);
-  console.log(otherNews);
+  
+  
 
   return (
     <div className="flex gap-6 pt-6 pb-8">
@@ -29,6 +31,7 @@ const MainNews = ({ news }: { news: News[] }) => {
           />
         </figure>
         <div className="card-body">
+          <h2 className="py-2 text-red-500 font-semibold"> {firstNews.category}</h2>
           <h2 className="card-title">{firstNews.title}</h2>
           <p>{firstNews.description}</p>
           <div className="card-actions justify-end"></div>
@@ -43,7 +46,9 @@ const MainNews = ({ news }: { news: News[] }) => {
             className="group flex items-center gap-4 rounded-xl border border-gray-200 bg-base-100 p-4 shadow-sm transition-all  hover:border-red-400 hover:shadow-lg"
           >
             {/* News content */}
-            <div className="min-w-0">
+            <div className="min-w-0 ">
+               <h2 className="py-2 text-red-500 font-semibold"> {newsitem.category}</h2>
+              
               <h2 className="line-clamp-2 text-lg font-semibold leading-7 text-gray-800 transition-colors duration-300 group-hover:text-red-600">
                 {newsitem.title}
               </h2>
