@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 interface News {
@@ -20,6 +21,7 @@ const MainNews = ({ news }: { news: News[] }) => {
 
   return (
     <div className="flex gap-6 pt-6 pb-8">
+     <Link href={`/news/${firstNews.id}`}>
       <div className="card bg-base-100 w-96 shadow-sm">
         <figure className="relative overflow-hidden">
           <Image
@@ -37,25 +39,31 @@ const MainNews = ({ news }: { news: News[] }) => {
           <div className="card-actions justify-end"></div>
         </div>
       </div>
+     </Link>
 
       {/* other news */}
-      <div className="grid gap-4">
-        {otherNews.slice(0, 4).map((newsitem) => (
-          <div
-            key={newsitem.id}
-            className="group flex items-center gap-4 rounded-xl border border-gray-200 bg-base-100 p-4 shadow-sm transition-all  hover:border-red-400 hover:shadow-lg"
-          >
-            {/* News content */}
-            <div className="min-w-0 ">
-               <h2 className="py-2 text-red-500 font-semibold"> {newsitem.category}</h2>
-              
-              <h2 className="line-clamp-2 text-lg font-semibold leading-7 text-gray-800 transition-colors duration-300 group-hover:text-red-600">
-                {newsitem.title}
-              </h2>
-            </div>
-          </div>
-        ))}
+
+<div className="grid gap-4">
+  {otherNews.slice(0, 4).map((newsitem) => (
+    <Link
+      key={newsitem.id}
+      href={`/news/${newsitem.id}`}
+      className="group flex items-center gap-4 rounded-xl border border-gray-200 bg-base-100 p-4 shadow-sm transition-all hover:border-red-400 hover:shadow-lg"
+    >
+      {/* News content */}
+      <div className="min-w-0">
+        <h2 className="py-2 font-semibold text-red-500">
+          {newsitem.category}
+        </h2>
+
+        <h2 className="line-clamp-2 text-lg font-semibold leading-7 text-gray-800 transition-colors duration-300 group-hover:text-red-600">
+          {newsitem.title}
+        </h2>
       </div>
+    </Link>
+  ))}
+</div>
+
     </div>
   );
 };

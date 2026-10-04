@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 interface IArticle {
   id: string;
@@ -17,6 +18,7 @@ const NewsCard = ({ news }: NewsCardProps) => {
   
 
   return (
+    <Link href={`/news/${news.id}`}>
     <div className="card bg-base-100 shadow-sm">
       {/* News Image */}
       <figure className="relative overflow-hidden">
@@ -42,7 +44,7 @@ const NewsCard = ({ news }: NewsCardProps) => {
 
         <div className="card-actions justify-end"></div>
       </div>
-    </div>
+    </div></Link>
   );
 };
 
