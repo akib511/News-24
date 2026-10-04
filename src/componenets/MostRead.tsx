@@ -15,7 +15,7 @@ const MostRead = async () => {
   const data: ApiResponse = await res.json();
   const news = data.data;
 
-  console.log(news);
+ 
 
   return (
     <div className="pt-6">
