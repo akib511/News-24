@@ -32,8 +32,6 @@ export default async function Home() {
   // Other news sections
   const otherSections: IOtherSection[] = sections.slice(1);
 
- 
-
   return (
     <div className="grid grid-cols-3 px-6 gap-6">
       {/* News section */}
@@ -68,12 +66,8 @@ export default async function Home() {
 
       {/* Most Read Section */}
       <div className="col-span-1">
-      <MostRead />
-</div>
-
-     
-     
-
+        <MostRead />
+      </div>
     </div>
   );
 }

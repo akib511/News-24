@@ -2,6 +2,7 @@
 import Image from "next/image";
 import logo from "../../public/logo.webp";
 import NavLinks from "./NavLinks";
+import UserInfo from "./UserInfo";
 
 const Header = () => {
   const date = new Date().toLocaleDateString("bn-BD", {
@@ -32,16 +33,8 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Login + Signup - Right */}
-      <div className="absolute right-6 top-1/2 flex -translate-y-1/2 items-center gap-5">
-        <button className="text-lg text-gray-800">
-          সাইন ইন
-        </button>
-
-        <button className="rounded-md bg-red-700 px-5 py-3 text-lg font-semibold text-white">
-          সাইন আপ
-        </button>
-      </div>
+      
+      <UserInfo />
 
       <NavLinks />
     </header>
