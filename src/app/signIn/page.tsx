@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -32,8 +33,11 @@ const SignInPage = () => {
     setLoading(false);
 
     if (error) {
-      setError(error.message);
-      toast.error(error.message);
+      // error.message undefined হতে পারে, তাই fallback message দেওয়া হয়েছে
+      const message = error.message || "সাইন ইন করতে সমস্যা হয়েছে।";
+
+      setError(message);
+      toast.error(message);
       return;
     }
 
@@ -51,7 +55,9 @@ const SignInPage = () => {
     });
 
     if (error) {
-      toast.error(error.message);
+      const message = error.message || "Google দিয়ে সাইন ইন করতে সমস্যা হয়েছে.";
+
+      toast.error(message);
     }
   };
 
@@ -63,7 +69,9 @@ const SignInPage = () => {
     });
 
     if (error) {
-      toast.error(error.message);
+      const message = error.message || "GitHub দিয়ে সাইন ইন করতে সমস্যা হয়েছে.";
+
+      toast.error(message);
     }
   };
 
@@ -132,3 +140,4 @@ const SignInPage = () => {
 };
 
 export default SignInPage;
+
