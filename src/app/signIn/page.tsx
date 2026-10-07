@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -33,6 +32,7 @@ const SignInPage = () => {
     setLoading(false);
 
     if (error) {
+      setError(error.message);
       toast.error(error.message);
       return;
     }
@@ -132,4 +132,3 @@ const SignInPage = () => {
 };
 
 export default SignInPage;
-
